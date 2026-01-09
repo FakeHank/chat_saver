@@ -141,7 +141,16 @@ function ensureHeaderButton() {
       }
 
       const capture = response.capture;
-      const markdown = globalThis.ChatSave.renderMarkdown(capture);
+      
+      // Try to use AI summary if available, fallback to regular markdown
+      let markdown;
+      if (globalThis.ChatSave.renderMarkdownWithSummary) {
+        label.textContent = 'Summarizing...';
+        markdown = await globalThis.ChatSave.renderMarkdownWithSummary(capture);
+      } else {
+        markdown = globalThis.ChatSave.renderMarkdown(capture);
+      }
+      
       const filename = globalThis.ChatSave.buildFilename({
         provider: capture.provider,
         title: capture.pageTitle,
@@ -217,7 +226,16 @@ function ensureGeminiHeaderButton() {
       }
 
       const capture = response.capture;
-      const markdown = globalThis.ChatSave.renderMarkdown(capture);
+      
+      // Try to use AI summary if available, fallback to regular markdown
+      let markdown;
+      if (globalThis.ChatSave.renderMarkdownWithSummary) {
+        label.textContent = 'Summarizing...';
+        markdown = await globalThis.ChatSave.renderMarkdownWithSummary(capture);
+      } else {
+        markdown = globalThis.ChatSave.renderMarkdown(capture);
+      }
+      
       const filename = globalThis.ChatSave.buildFilename({
         provider: capture.provider,
         title: capture.pageTitle,
@@ -304,7 +322,16 @@ function ensureClaudeHeaderButton() {
       }
 
       const capture = response.capture;
-      const markdown = globalThis.ChatSave.renderMarkdown(capture);
+      
+      // Try to use AI summary if available, fallback to regular markdown
+      let markdown;
+      if (globalThis.ChatSave.renderMarkdownWithSummary) {
+        button.textContent = 'Summarizing...';
+        markdown = await globalThis.ChatSave.renderMarkdownWithSummary(capture);
+      } else {
+        markdown = globalThis.ChatSave.renderMarkdown(capture);
+      }
+      
       const filename = globalThis.ChatSave.buildFilename({
         provider: capture.provider,
         title: capture.pageTitle,

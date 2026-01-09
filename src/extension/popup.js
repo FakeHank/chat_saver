@@ -43,6 +43,9 @@ async function ensureContentScript(tabId) {
     'lib/contracts.js',
     'lib/providers.js',
     'lib/normalize.js',
+    'lib/filenames.js',
+    'lib/ai-summary.js',
+    'lib/markdown.js',
     'lib/extractors/index.js',
     'lib/extractors/selection.js',
     'lib/extractors/chatgpt.js',
@@ -73,7 +76,15 @@ async function requestExtract(type) {
 }
 
 async function triggerDownload(capture) {
-  const markdown = globalThis.ChatSave.renderMarkdown(capture);
+  // Try to use AI summary if available
+  let markdown;
+  if (globalThis.ChatSave.renderMarkdownWithSummary) {
+    setStatus('Generating summary...');
+    markdown = await globalThis.ChatSave.renderMarkdownWithSummary(capture);
+  } else {
+    markdown = globalThis.ChatSave.renderMarkdown(capture);
+  }
+  
   const filename = globalThis.ChatSave.buildFilename({
     provider: capture.provider,
     title: capture.pageTitle,
@@ -139,3 +150,12 @@ async function handleSelectionDownload() {
 
 downloadBtn.addEventListener('click', handlePrimaryDownload);
 selectionBtn.addEventListener('click', handleSelectionDownload);
+
+// Settings link
+const settingsLink = document.getElementById('settingsLink');
+if (settingsLink) {
+  settingsLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    chrome.runtime.openOptionsPage();
+  });
+}

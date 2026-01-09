@@ -14,7 +14,9 @@ Chat Saver is a Chrome extension that lets you save the current chat page into a
 - Inline Save buttons that match each site’s UI
 - Multi-site support (expanding)
 - Preserves basic Markdown structure (headings, lists, bold, code blocks)
-- Local download only (no uploads)
+- **🆕 AI-powered summaries** (optional) - Generate key insights and notable quotes
+- **🆕 Smart filenames** - Auto-generated: `{provider}-{topic}-{timestamp}.md`
+- Local download only (chat content is not uploaded unless AI summary is enabled)
 
 ## Supported Sites
 - ChatGPT
@@ -36,6 +38,18 @@ Chat Saver is a Chrome extension that lets you save the current chat page into a
 2. Find the `Save` button in the page header actions
 3. Click to download the Markdown file
 
+### Enable AI Summary (Optional)
+1. Right-click the extension icon and select "Options" (or click ⚙️ Settings in the popup)
+2. Toggle "Enable AI Summary"
+3. Select your preferred AI provider (OpenAI, Anthropic, or Google Gemini)
+4. Enter your API key
+5. Save settings
+
+When enabled, saved chats will include:
+- 💡 Key Insights (2-4 bullet points)
+- ✨ Notable Quotes (1-3 memorable quotes)
+- 📋 Summary (2-3 sentence overview)
+
 ## Export Format
 The exported `.md` file includes:
 - Conversation title (if available)
@@ -44,7 +58,8 @@ The exported `.md` file includes:
 - Canvas entries include title/time metadata when only the chip is available
 
 ## Privacy
-All processing is local. The extension does not upload or sync your chats.
+- **Without AI Summary**: All processing is local. The extension does not upload your chats.
+- **With AI Summary**: When enabled, conversation content is sent to your chosen AI provider (OpenAI/Anthropic/Google) to generate summaries. Your API key is stored locally and never shared.
 
 ## Known Limitations
 - Only currently loaded messages are saved
@@ -60,13 +75,18 @@ src/extension/
   manifest.json
   content-script.js
   service-worker.js
-  popup.html
-  popup.js
+  popup.html / popup.js / popup.css
+  options.html / options.js        # Settings page for AI summary
   lib/
-    extractors/
+    ai-summary.js                  # AI summary service
+    filenames.js                   # Smart filename generation
+    markdown.js                    # Markdown rendering
+    extractors/                    # Site-specific extractors
 ```
 
 ## Roadmap
 - Add more site support
 - Improve rich content and attachments export
 - Optional cloud sync (future)
+- Custom summary prompts
+- Local LLM support (Ollama)

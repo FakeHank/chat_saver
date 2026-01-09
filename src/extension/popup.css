@@ -68,3 +68,16 @@ h1 {
   font-size: 12px;
   min-height: 16px;
 }
+
+.settings-link {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  color: #5b544c;
+  text-decoration: none;
+}
+
+.settings-link:hover {
+  color: #c2541a;
+}

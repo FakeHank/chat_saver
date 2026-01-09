@@ -1,20 +1,24 @@
 {
   "manifest_version": 3,
   "name": "Chat Save",
-  "version": "0.1.0",
-  "description": "Download the current chat page as a Markdown file.",
+  "version": "0.2.0",
+  "description": "Download the current chat page as a Markdown file with optional AI-powered summaries.",
   "action": {
     "default_popup": "popup.html",
     "default_title": "Chat Save"
   },
-  "permissions": ["downloads", "activeTab", "scripting"],
+  "options_page": "options.html",
+  "permissions": ["downloads", "activeTab", "scripting", "storage"],
   "host_permissions": [
     "https://chatgpt.com/*",
     "https://gemini.google.com/*",
     "https://claude.ai/*",
     "https://grok.com/*",
     "https://chat.deepseek.com/*",
-    "https://www.doubao.com/*"
+    "https://www.doubao.com/*",
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://generativelanguage.googleapis.com/*"
   ],
   "background": {
     "service_worker": "service-worker.js",
@@ -35,6 +39,7 @@
         "lib/providers.js",
         "lib/normalize.js",
         "lib/filenames.js",
+        "lib/ai-summary.js",
         "lib/markdown.js",
         "lib/extractors/index.js",
         "lib/extractors/selection.js",

@@ -1,8 +1,8 @@
 # Chat Saver (Chrome Extension)
 
-Save AI chat conversations from popular websites (ChatGPT, Gemini, Claude, etc.) as local Markdown files.
+[中文版本](README.zh.md)
 
-中文版本：README.zh.md
+Save AI chat conversations from popular websites (ChatGPT, Gemini, Claude, etc.) as local Markdown files.
 
 ![Chat Saver in ChatGPT](src/img/iShot_2026-01-09_16.30.12.png)
 
@@ -18,11 +18,11 @@ Chat Saver is a Chrome extension that lets you save the current chat page into a
 
 ## Supported Sites
 - ChatGPT
-- Google Gemini (Canvas metadata supported)
+- Google Gemini
 - Claude
-- Grok
-- DeepSeek
-- Doubao
+- Grok (still in building)
+- DeepSeek (still in building)
+- Doubao (still in building)
 
 ## Installation (Load Unpacked)
 1. Clone this repository

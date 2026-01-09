@@ -11,11 +11,11 @@ Chat Saver 是一个 Chrome 浏览器插件，用于一键保存当前聊天页�
 
 ## 已支持站点
 - ChatGPT
-- Google Gemini（含 Canvas 标记）
+- Google Gemini
 - Claude
-- Grok
-- DeepSeek
-- 豆包
+- Grok（待支持）
+- DeepSeek（待支持）
+- 豆包（待支持）
 
 ## 安装方式（本地加载）
 1. 克隆仓库到本地
@@ -63,6 +63,3 @@ src/extension/
 - 增加更多网站支持
 - 更完整的富文本与附件导出
 - 云端同步（后续版本）
-
-## 许可证
-请在开源前补充 LICENSE（例如 MIT）。

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat Save</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <h1>Chat Save</h1>
+    <p class="hint">Save the currently loaded chat as Markdown.</p>
+    <button id="downloadBtn" class="primary">Save as Markdown</button>
+    <button id="selectionBtn" class="secondary" hidden>Save selected text</button>
+    <p class="notice">Only currently loaded messages are saved. Scroll up to load more.</p>
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+    <script src="lib/contracts.js"></script>
+    <script src="lib/filenames.js"></script>
+    <script src="lib/markdown.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+:root {
+  color-scheme: light;
+  font-family: "IBM Plex Sans", "SF Pro Text", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f7f3ec;
+  color: #231f1a;
+}
+
+.panel {
+  width: 280px;
+  padding: 16px;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.hint {
+  font-size: 12px;
+  margin: 0 0 12px;
+  color: #5b544c;
+}
+
+.primary {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 10px 12px;
+  background: #c2541a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.secondary {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid #c2541a;
+  padding: 9px 12px;
+  background: transparent;
+  color: #c2541a;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.notice {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: #6b6259;
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 12px;
+  min-height: 16px;
+}

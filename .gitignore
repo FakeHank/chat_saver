@@ -3,3 +3,4 @@ specs/
 .specify/
 .codex/
 .cursor/
+.DS_Store

@@ -51,12 +51,8 @@ async function requestDownload(filename, markdown) {
 
     return { ok: true };
   } catch (err) {
-    const message = String(err?.message || err);
-    if (message.includes('Extension context invalidated')) {
-      downloadInPage(filename, markdown);
-      return { ok: true, fallback: true };
-    }
-    throw err;
+    downloadInPage(filename, markdown);
+    return { ok: true, fallback: true, error: String(err?.message || err) };
   }
 }
 
